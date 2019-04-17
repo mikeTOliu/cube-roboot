@@ -1,4 +1,5 @@
-#include <Stepper.h>
+#include "Stepper.h"
+#include "test.h"
 //#include <String.h>
 using namespace std;
 //R1L3F2B2R1L3U1L1R3B2F2L1R3=D
@@ -11,7 +12,7 @@ const int STEPS = 208;              // 360/1.8
 const int stepperSpeed = 180;       // rpm  15.8V 
 const int timeBetweenMoves = 5;     // ms    between U2 R2 or U R etc.
 const int timeBetweenComs = 1000*3; // ms    between commands
-const int steps_90 = 3*STEPS/4 ;     
+const int steps_90 = -STEPS/4 ;     
 const int steps_180 = STEPS/2;
 const int steps_270 = STEPS/4;   
 
@@ -57,7 +58,7 @@ void loop()
 // I just simply paste the solution here and upload the code.
 void Getcom() 
 {    
-    command = "B3R3U2F3U1F2R1D1B2R1F2D3R3U3L2F2U1R2U3U2F2U2L2B2R2B2D2F2D2R2";
+    command = com;
     
     Solve();
 }

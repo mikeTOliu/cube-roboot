@@ -132,7 +132,7 @@ class Webcam:
 
             # append amount of scanned sides
             text = 'scanned sides: {}/6'.format(len(sides))
-            cv2.putText(frame, text, (20, 460), cv2.FONT_HERSHEY_TRIPLEX, 0.5, (255,255,255), 1, cv2.CV_AA)
+            cv2.putText(frame, text, (20, 460), cv2.FONT_HERSHEY_TRIPLEX, 0.5, (255,255,255), 1, cv2.LINE_AA)
 
             # quit on escape.
             if key == 27:
@@ -174,44 +174,4 @@ def  str_(list_,m):
                 str1+="W"#ROBY
                 continue
             if i%3 == 0:
-                str1+="\n"
-            str1+=zh(str2)
-        elif m==3:
-            if i==4:
-                str1+="R"
-                continue
-            if i%3 == 0:
-                str1+="\n"
-            str1+=zh(str2)
-        elif m==4:
-            if i==4:
-                str1+="O"
-                continue
-            if i%3 == 0:
-                str1+="\n"
-            str1+=zh(str2)
-        elif m==5:
-            if i==4:
-                str1+="B"
-                continue
-            if i%3 == 0:
-                str1+="\n"
-            str1+=zh(str2)
-        elif m==6:
-            if i==4:
-                str1+="Y"
-                continue
-            if i%3 == 0:
-                str1+="\n"
-            str1+=zh(str2)
-    str1+="\n"
-    string1=string1+str1
-    if m == 6:
-        makefile()
-    print str1
-def makefile():
-    global string1
-    input_=open("CUBE_STATE.txt",'w')
-    input_.write(string1)
-    input_.close()
-webcam = Webcam()
+                s

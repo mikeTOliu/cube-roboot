@@ -1,15 +1,16 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from sys import exit as Die
 try:
     import sys
-    import kociemba
+    #import kociemba
     import argparse
 
-    from combiner import combine
+    #from combiner import combine
     from video import webcam
-    from normalizer import normalize
+    #from normalizer import normalize
 except ImportError as err:
     Die(err)
 
@@ -22,24 +23,26 @@ class Qbr:
 
     def run(self):
         state         = webcam.scan()
+	'''
         if not state:
             print('\033[0;33m[QBR SCAN ERROR] Ops, you did not scan in all 6 sides.')
             print('Please try again.\033[0m')
             Die(1)
-
+	
         unsolvedState = combine.sides(state)
-        try:
+	        
+	try:
             algorithm     = kociemba.solve(unsolvedState)
             length        = len(algorithm.split(' '))
         except Exception as err:
             print('\033[0;33m[QBR SOLVE ERROR] Ops, you did not scan in all 6 sides correctly.')
             print('Please try again.\033[0m')
             Die(1)
-
+	
         print('-- SOLUTION --')
         print('Starting position:\n    front: green\n    top: white\n')
         print(algorithm, '({0} moves)'.format(length), '\n')
-
+	'''
         if self.humanize:
             manual = normalize.algorithm(algorithm, self.language)
             for index, text in enumerate(manual):

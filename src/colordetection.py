@@ -25,7 +25,7 @@ class ColorDetection:
             return 'white'
         elif h > 20 and h<=35:
             return 'yellow'
-        elif h >= 65 and h<=85:
+        elif h >= 65 and h<=78:
             return 'green'
         elif h >= 100 and h<=115 and s>=140 :
             return 'blue'
